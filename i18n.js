@@ -66,8 +66,7 @@ module.exports = (function() {
   // public exports
   var i18n = {};
 
-  i18n.version = '0.0.1';
-  i18n.originVersion = '0.8.3';
+  i18n.version = '9.0.1';
 
   i18n.configure = function i18nConfigure(opt) {
 
