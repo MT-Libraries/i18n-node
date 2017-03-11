@@ -60,12 +60,14 @@ module.exports = (function() {
     queryParameter,
     register,
     updateFiles,
-    syncFiles;
+    syncFiles,
+    localesData;
 
   // public exports
   var i18n = {};
 
-  i18n.version = '0.8.3';
+  i18n.version = '0.0.1';
+  i18n.originVersion = '0.8.3';
 
   i18n.configure = function i18nConfigure(opt) {
 
@@ -107,7 +109,7 @@ module.exports = (function() {
 
     // where to store json files
     directory = (typeof opt.directory === 'string') ?
-      opt.directory : path.join(__dirname, 'locales');
+      (opt.directory === false ? false : opt.directory) : path.join(__dirname, 'locales');
 
     // permissions when creating new directories
     directoryPermissions = (typeof opt.directoryPermissions === 'string') ?
@@ -130,6 +132,9 @@ module.exports = (function() {
 
     // setting defaultLocale
     defaultLocale = (typeof opt.defaultLocale === 'string') ? opt.defaultLocale : 'en';
+
+    // setting translation data directly, without file
+    localesData = (typeof opt.localesData === 'object') ? opt.localesData : false;
 
     // auto reload locale files when changed
     autoReload = (typeof opt.autoReload === 'boolean') ? opt.autoReload : false;
@@ -154,6 +159,14 @@ module.exports = (function() {
 
     // implicitly read all locales
     if (Array.isArray(opt.locales)) {
+      if(directory && localesData) {
+        logWarnFn('localesData is more advanced than directory option, localesData is used');
+      }
+
+      if(localesData) {
+        locales = localesData;
+        return;
+      }
 
       opt.locales.forEach(function(l) {
         read(l);

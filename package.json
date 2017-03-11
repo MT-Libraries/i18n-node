@@ -1,13 +1,13 @@
 {
-  "name": "i18n",
+  "name": "i18n-o",
   "description": "lightweight translation module with dynamic json storage",
-  "version": "0.8.3",
-  "homepage": "http://github.com/mashpie/i18n-node",
+  "version": "0.0.1",
+  "homepage": "https://github.com/MT-Libraries/i18n-node-o",
   "repository": {
     "type": "git",
-    "url": "http://github.com/mashpie/i18n-node.git"
+    "url": "https://github.com/MT-Libraries/i18n-node-o.git"
   },
-  "author": "Marcus Spiegel <marcus.spiegel@gmail.com>",
+  "author": "JailBreakC <geek@vgee.cn>",
   "main": "./index",
   "keywords": [
     "template",

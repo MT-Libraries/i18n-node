@@ -30,6 +30,34 @@ var express = require('express'),
     i18n = require("i18n");
 ```
 
+-----------
+## Update
+**This project is forked form i18n-node.
+we added an option localesData for load locales data directly from an object
+so you can just save your locales data in database or get it from remote api.**
+
+### Configure
+
+```js
+var localesData = {
+  en: {
+    'key_1': 'value 1',
+    'key_2': 'value 2'
+  },
+  zh: {
+    'key_1': '值 1',
+    'key_2': '值 2'
+  }
+}
+i18n.configure({
+    locales:['en', 'zh'],
+    directory: false,
+    localesData: localesData
+});
+```
+
+-----------
+
 ## Configure
 
 Minimal example, just setup two locales and a project specific directory
