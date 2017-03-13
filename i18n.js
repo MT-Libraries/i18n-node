@@ -2,8 +2,14 @@
  * @author      Created by Marcus Spiegel <marcus.spiegel@gmail.com> on 2011-03-25.
  * @link        https://github.com/mashpie/i18n-node
  * @license     http://opensource.org/licenses/MIT
- *
+ * 
  * @version     0.8.3
+ *
+ * @author      Created by Marcus Spiegel <marcus.spiegel@gmail.com> on 2011-03-25.
+ * @link        https://github.com/mashpie/i18n-node
+ * @license     http://opensource.org/licenses/MIT
+ *
+ * @version     9.0.2
  */
 
 'use strict';
@@ -66,7 +72,7 @@ module.exports = (function() {
   // public exports
   var i18n = {};
 
-  i18n.version = '9.0.1';
+  i18n.version = '9.0.2';
 
   i18n.configure = function i18nConfigure(opt) {
 
@@ -108,7 +114,7 @@ module.exports = (function() {
 
     // where to store json files
     directory = (typeof opt.directory === 'string') ?
-      (opt.directory === false ? false : opt.directory) : path.join(__dirname, 'locales');
+      opt.directory : path.join(__dirname, 'locales');
 
     // permissions when creating new directories
     directoryPermissions = (typeof opt.directoryPermissions === 'string') ?
@@ -158,9 +164,6 @@ module.exports = (function() {
 
     // implicitly read all locales
     if (Array.isArray(opt.locales)) {
-      if(directory && localesData) {
-        logWarnFn('localesData is more advanced than directory option, localesData is used');
-      }
 
       if(localesData) {
         locales = localesData;

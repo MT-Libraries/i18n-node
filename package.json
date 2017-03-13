@@ -1,7 +1,7 @@
 {
   "name": "i18n-o",
   "description": "lightweight translation module with dynamic json storage",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "homepage": "https://github.com/MT-Libraries/i18n-node-o",
   "repository": {
     "type": "git",
